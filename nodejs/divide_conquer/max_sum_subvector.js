@@ -1,4 +1,5 @@
-const arr = [2, -1, 5, 6, -7, 0];
+'use strict';
+const arr = [-1, 8, -6];
 
 const maxCrossVector = (arr, l, m, h) => {
     let sum = 0;
@@ -18,14 +19,16 @@ const maxCrossVector = (arr, l, m, h) => {
             rightSum = sum;
         };
     };
-    return leftSum + rightSum
+    console.log(leftSum + rightSum);
+    return leftSum + rightSum;
 }
 
 const maxSubVector = (arr, l, h) => {
     if (l == h) {
         return arr[l];
     };
-    let m = Math.floor((l+h)/2);
+    let m = Math.trunc((l+h)/2);
+    console.log(maxSubVector(arr, l, m));
     return Math.max(maxSubVector(arr, l, m), maxSubVector(arr, m+1, h), maxCrossVector(arr, l, m, h))
 }
 console.log(maxSubVector(arr, 0, arr.length - 1));
